@@ -1,0 +1,26 @@
+bjectStatus.EXISTS, coll.existsInDatabase());
+        this.schema.dropCollection(collName);
+    }
+
+    @Test(expected = WrongArgumentException.class)
+    public void getNonExistentCollectionWithRequireExistsShouldThrow() {
+        if (!this.isSetForXTests) {
+            throw new WrongArgumentException("Throw WrongArgumentException as expected, but test was ignored because of missed configuration.");
+        }
+        String collName = "testRequireExists";
+        dropCollection(collName);
+        this.schema.getCollection(collName, true);
+    }
+
+    @Test
+    public void getNonExistentCollectionWithoutRequireExistsShouldNotThrow() {
+        if (!this.isSetForXTests) {
+            return;
+        }
+        String collName = "testRequireExists";
+        dropCollection(collName);
+        this.schema.getCollection(collName, false);
+    }
+
+    @Test
+    public void getExistentCollectionWithRequireExistsShouldNotT

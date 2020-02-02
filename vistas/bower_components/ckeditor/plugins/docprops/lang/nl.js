@@ -1,0 +1,6 @@
+ons.h'.
+[0f40:0004][2018-09-15T23:50:41] Started: Copying file android-ndk-r15c/platforms/android-16/arch-x86/usr/include/asm-generic/ipc.h to C:\\Microsoft\AndroidNDK64\android-ndk-r15c/platforms/android-16/arch-x86/usr/include/asm-generic/ipc.h
+[0f40:0004][2018-09-15T23:50:41] Completed: Copying file android-ndk-r15c/platforms/android-16/arch-x86/usr/include/asm-generic/ipc.h to C:\\Microsoft\AndroidNDK64\android-ndk-r15c/platforms/android-16/arch-x86/usr/include/asm-generic/ipc.h
+[0f40:0004][2018-09-15T23:50:41] Timestamp updated for file 'C:\\Microsoft\AndroidNDK64\android-ndk-r15c/platforms/android-16/arch-x86/usr/include/asm-generic/ipc.h'.
+[0f40:0004][2018-09-15T23:50:41] Started: Copying file android-ndk-r15c/platforms/android-16/arch-x86/usr/include/asm-generic/pgtable-nopud.h to C:\\Microsoft\AndroidNDK64\android-ndk-r15c/platforms/android-16/arch-x86/usr/include/asm-generic/pgtable-nopud.h
+[0f40:0004][2018-09-15T23:50:41] Completed: Copying file android-ndk-r15c/platforms/android-16/arch-x86/usr/include/asm-generic/pgtable-nopud.h to C:\\Microsoft\AndroidNDK64\android-ndk-r15c/platforms/android-16/arch-x86/usr/include/asm-generic/pgta

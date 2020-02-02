@@ -1,0 +1,33 @@
+context." %
+             arg_str))
+
+
+class ExploreValueCommand(gdb.Command):
+    """Explore value of an expression valid in the current context.
+
+       Usage:
+
+         explore value ARG
+
+         - ARG is a valid expression.
+         - At any stage of exploration, hit the return key (instead of a
+           choice, if any) to return to the enclosing value.
+    """
+ 
+    def __init__(self):
+        super(ExploreValueCommand, self).__init__(
+            name = "explore value", command_class = gdb.COMMAND_DATA)
+
+    def invoke(self, arg_str, from_tty):
+        if ExploreUtils.check_args("explore value", arg_str) == False:
+            return
+
+        value = ExploreUtils.get_value_from_str(arg_str)
+        if value is None:
+            raise gdb.GdbError(
+                (" '%s' does not evaluate to a value in the current "
+                 "context." %
+                 arg_str))
+            return
+
+        Explor

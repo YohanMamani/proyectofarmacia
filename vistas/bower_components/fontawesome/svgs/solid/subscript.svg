@@ -1,0 +1,17 @@
+paramref name="newPosition" />, <paramref name="newSize" /> and <paramref name="newSizeType" /> parameters.</summary>
+      <param name="axis">The axis of the scale view.</param>
+      <param name="newPosition">The start position of the new scale view.</param>
+      <param name="newSize">The new scale view size.</param>
+      <param name="newSizeType">The unit of measurement for the size of the new scale view.</param>
+    </member>
+    <member name="P:System.Windows.Forms.DataVisualization.Charting.ViewEventArgs.Axis">
+      <summary>Gets the <see cref="T:System.Windows.Forms.DataVisualization.Charting.Axis" /> object that a view belongs to.</summary>
+      <returns>An <see cref="T:System.Windows.Forms.DataVisualization.Charting.Axis" /> object that represents the axis that a view belongs to.</returns>
+    </member>
+    <member name="P:System.Windows.Forms.DataVisualization.Charting.ViewEventArgs.ChartArea">
+      <summary>Gets the <see cref="T:System.Windows.Forms.DataVisualization.Charting.ChartArea" /> object that a view belongs to.</summary>
+      <returns>A <see cref="T:System.Windows.Forms.DataVisualization.Charting.ChartArea" /> object that represents the chart area a view belongs to.</returns>
+    </member>
+    <member name="P:System.Windows.Forms.DataVisualization.Charting.ViewEventArgs.NewPosition">
+      <summary>Gets the new position of a view along an axis.</summary>
+      

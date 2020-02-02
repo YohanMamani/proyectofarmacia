@@ -1,0 +1,33 @@
+{
+        if (event == AudioPlaybackConfiguration.PLAYER_STATE_STARTED ||
+                apc.getPlayerState() == AudioPlaybackConfiguration.PLAYER_STATE_STARTED) {
+            if ((apc.getAudioAttributes().getAllFlags() & FLAGS_FOR_SILENCE_OVERRIDE)
+                        == FLAGS_FOR_SILENCE_OVERRIDE  &&
+                    apc.getAudioAttributes().getUsage() == AudioAttributes.USAGE_ALARM &&
+                    mContext.checkPermission(android.Manifest.permission.MODIFY_PHONE_STATE,
+                            apc.getClientPid(), apc.getClientUid()) ==
+                            PackageManager.PERMISSION_GRANTED) {
+                if (event == AudioPlaybackConfiguration.PLAYER_STATE_STARTED &&
+                        apc.getPlayerState() != AudioPlaybackConfiguration.PLAYER_STATE_STARTED) {
+                    if (mPrivilegedAlarmActiveCount++ == 0) {
+                        mSavedAlarmVolume = AudioSystem.getStreamVolumeIndex(
+                                AudioSystem.STREAM_ALARM, AudioSystem.DEVICE_OUT_SPEAKER);
+                        AudioSystem.setStreamVolumeIndex(AudioSystem.STREAM_ALARM,
+                                mMaxAlarmVolume, AudioSystem.DEVICE_OUT_SPEAKER);
+                    }
+                } else if (event != AudioPlaybackConfiguration.PLAYER_STATE_STARTED &&
+                        apc.getPlayerState() == AudioPlaybackConfiguration.PLAYER_STATE_STARTED) {
+                    if (--mPrivilegedAlarmActiveCount == 0) {
+                        if (AudioSystem.getStreamVolumeIndex(
+                                AudioSystem.STREAM_ALARM, AudioSystem.DEVICE_OUT_SPEAKER) ==
+                                mMaxAlarmVolume) {
+                            AudioSystem.setStreamVolumeIndex(AudioSystem.STREAM_ALARM,
+                                    mSavedAlarmVolume, AudioSystem.DEVICE_OUT_SPEAKER);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public void playerEvent(int piid, int event, int bi

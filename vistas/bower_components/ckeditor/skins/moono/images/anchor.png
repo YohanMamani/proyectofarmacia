@@ -1,0 +1,29 @@
+asedir/from.sh\" \"$@\"" +
+            "\n  ret=$?" +
+            "\nelse " +
+            "\n  /usr/bin/sh  \"$basedir/from.sh\" \"$@\"" +
+            "\n  ret=$?" +
+            "\nfi" +
+            "\nexit $ret" +
+            "\n")
+
+    t.equal(fs.readFileSync(to + '.cmd', 'utf8'),
+            "@IF EXIST \"%~dp0\\/usr/bin/sh.exe\" (\r" +
+            "\n  \"%~dp0\\/usr/bin/sh.exe\"  \"%~dp0\\from.sh\" %*\r" +
+            "\n) ELSE (\r" +
+            "\n  @SETLOCAL\r"+
+            "\n  @SET PATHEXT=%PATHEXT:;.JS;=;%\r"+
+            "\n  /usr/bin/sh  \"%~dp0\\from.sh\" %*\r" +
+            "\n)")
+    t.end()
+  })
+})
+
+test('explicit shebang with args', function (t) {
+  var from = path.resolve(fixtures, 'from.sh.args')
+  var to = path.resolve(fixtures, 'sh.args.shim')
+  cmdShim(from, to, function(er) {
+    if (er)
+      throw er
+    console.error('%j', fs.readFileSync(to, 'utf8'))
+    console.

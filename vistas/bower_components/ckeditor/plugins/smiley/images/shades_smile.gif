@@ -1,0 +1,18 @@
+Controls.Button" /> elements in their normal state.</summary>
+    </member>
+    <member name="F:Microsoft.Windows.Themes.ClassicBorderStyle.RaisedPressed">
+      <summary>Used for <see cref="T:System.Windows.Controls.Button" /> elements in their pressed state.</summary>
+    </member>
+    <member name="F:Microsoft.Windows.Themes.ClassicBorderStyle.RaisedFocused">
+      <summary>Used for <see cref="T:System.Windows.Controls.Button" /> elements that have keyboard focus or are the default <see cref="T:System.Windows.Controls.Button" />.</summary>
+    </member>
+    <member name="F:Microsoft.Windows.Themes.ClassicBorderStyle.Sunken">
+      <summary>Used for <see cref="T:System.Windows.Controls.ListBox" />, <see cref="T:System.Windows.Controls.TextBox" />, and <see cref="T:System.Windows.Controls.CheckBox" />.</summary>
+    </member>
+    <member name="F:Microsoft.Windows.Themes.ClassicBorderStyle.Etched">
+      <summary>Used for <see cref="T:System.Windows.Controls.GroupBox" />.</summary>
+    </member>
+    <member name="F:Microsoft.Windows.Themes.ClassicBorderStyle.HorizontalLine">
+      <summary>Used for horizontal <see cref="T:System.Windows.Controls.Separator" />.</summary>
+    </member>
+    <member

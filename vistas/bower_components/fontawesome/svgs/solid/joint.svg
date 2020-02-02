@@ -1,0 +1,25 @@
+;
+    private int mPrivilegedAlarmActiveCount = 0;
+
+    PlaybackActivityMonitor(Context context, int maxAlarmVolume) {
+        mContext = context;
+        mMaxAlarmVolume = maxAlarmVolume;
+        PlayMonitorClient.sListenerDeathMonitor = this;
+        AudioPlaybackConfiguration.sPlayerDeathMonitor = this;
+    }
+
+    //=================================================================
+    private final ArrayList<Integer> mBannedUids = new ArrayList<Integer>();
+
+    // see AudioManagerInternal.disableAudioForUid(boolean disable, int uid)
+    public void disableAudioForUid(boolean disable, int uid) {
+        synchronized(mPlayerLock) {
+            final int index = mBannedUids.indexOf(new Integer(uid));
+            if (index >= 0) {
+                if (!disable) {
+                    if (DEBUG) { // hidden behind DEBUG, too noisy otherwise
+                        sEventLogger.log(new AudioEventLogger.StringEvent("unbanning uid:" + uid));
+                    }
+                    mBannedUids.remove(index);
+                    // nothing else to do, future playback requests from this uid are ok
+                } // no else 

@@ -1,0 +1,33 @@
+tual_type)))
+
+        Explorer.explore_expr(expr, value.cast(actual_type), is_child)
+        return False
+
+    @staticmethod
+    def explore_type(name, datatype, is_child):
+        """Function to explore typedef types.
+        See Explorer.explore_type for more information.
+        """
+        actual_type = datatype.strip_typedefs()
+        if is_child:
+            print ("The type of %s is a typedef of type '%s'." %
+                   (name, str(actual_type)))
+        else:
+            print ("The type '%s' is a typedef of type '%s'." %
+                   (name, str(actual_type)))
+
+        Explorer.explore_type(name, actual_type, is_child)
+        return False
+
+
+class ExploreUtils(object):
+    """Internal class which provides utilities for the main command classes."""
+
+    @staticmethod
+    def check_args(name, arg_str):
+        """Utility to check if adequate number of arguments are passed to an
+        explore command.
+
+        Arguments:
+            name: The name of the explore command.
+            ar

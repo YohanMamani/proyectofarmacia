@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>System.Messaging</name>
+  </assembly>
+  <members>
+    <member name="T:System.Messaging.AccessControlEntry">
+      <summary>Specifies access rights for a trustee (user, group, or computer) to perform application-specific implementations of common tasks.</summary>
+    </member>
+    <member name="M:System.Messaging.AccessControlEntry.#ctor">
+      <summary>Initializes a new instance of the <see cref="T:System.Messaging.AccessControlEntry" /> class that specifies neither a trustee nor set of rights to apply.</summary>
+    </member>
+    <member name="M:System.Messaging.AccessControlEntry.#ctor(System.Messaging.Trustee)">
+      <summary>Initializes a new instance of the <see cref="T:System.Messaging.AccessControlEntry" /> class that specifies a trustee to which rights are granted or denied.</summary>
+      <param name="trustee">A <see cref="T:System.Messaging.Trustee" /> that specifies a user, group, computer, domain, or alias. </param>
+      <exception cref="T:System.ArgumentNullException">The <paramref name="trustee" /> parameter is null. </exception>
+    </member>
+    <member name="M:System.Messaging.AccessControlEntry.#ctor(System.Messaging.Trustee,System.Messaging.GenericAccessRights,System.Messaging.Standard
