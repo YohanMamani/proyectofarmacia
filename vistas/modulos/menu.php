@@ -58,7 +58,16 @@
 				</a>
 
 			</li>
+			<li>
 
+				<a href="notificaciones">
+
+					<i class="fa fa-bell"></i>
+					<span>Notificaciones</span>
+
+				</a>
+
+			</li>
 			<li>
 
 				<a href="clientes">

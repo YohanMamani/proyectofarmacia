@@ -71,8 +71,9 @@ class TablaProductos
                     "' . $juegos["juego"] . '",
                     "' . $productos[$i]["codigo"] . '",
                     "' . $productos[$i]["descripcion"] . '",
+                    "' . $productos[$i]["stock_minimo"] . '",                    
                     "' . $stock . '",
-                    "' . $productos[$i]["precio_compra"] . '",
+                    "' . $productos[$i]["stock_maximo"] . '",                    
                     "' . $productos[$i]["precio_venta"] . '",
                     "' . $productos[$i]["fecha"] . '",
                     "' . $botones . '"
