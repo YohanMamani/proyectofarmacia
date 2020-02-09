@@ -1,4 +1,6 @@
 <?php
+include 'modelos/pedidos.modelo.php';
+
 
 class ControladorVentas{
 
@@ -64,11 +66,38 @@ class ControladorVentas{
 			    $item = "id";
 			    $valor = $value["id"];
 			    $orden = "id";
-
-			    $traerProducto = ModeloProductos::mdlMostrarProductos($tablaProductos, $item, $valor, $orden);
+				$item3 = "descripcion";
+			    $traerProductos = ModeloProductos::mdlMostrarProductos($tablaProductos, $item, $valor, $orden);
+				
+				$traerProducts = ModeloProductos::mdlMostrarProductos($tablaProductos, $item3, $value["descripcion"]);
 
 				$item1b = "stock";
 				$valor1b = $value["stock"];
+				$codigox = $traerProducts["codigo"];
+				$stockmax =$traerProducts["stock_maximo"] + 1;
+				$cantidadnecesaria = $stockmax - $traerProducts["stock"];
+
+
+				echo $cantidadnecesaria;
+
+				if ($valor1b <= 5) {
+	
+					$datosp = array("id"=>$value["id"],
+					"codigo_producto"=>$codigox,
+					"nombre_producto"=>$value["descripcion"],
+					"cantidad_producto"=>$cantidadnecesaria
+				);
+
+
+				$tablap = "pedidos";
+				$existepedido = ModeloPedidos::mdlMostrarPedidos($tablap,"codigo_producto",$codigox);
+
+				if($existepedido == null){
+					$ingresarpedido = ModeloPedidos::mdlIngresarPedido($tablap,$datosp);
+				}
+				
+				} 
+
 
 				$nuevoStock = ModeloProductos::mdlActualizarProducto($tablaProductos, $item1b, $valor1b, $valor);
 				
@@ -121,7 +150,65 @@ class ControladorVentas{
 						   "total"=>$_POST["nuevoTotalVenta"],
 						   "metodo_pago"=>$_POST["listaMetodoPago"]);
 			
-			$respuesta = ModeloVentas::mdlIngresarVenta($tabla, $datos);
+			//$respuesta = ModeloVentas::mdlIngresarVenta($tabla, $datos);
+			$respuesta2 = 10; //aca tengo que llamar a la base de datos
+			
+			$tablape ="pedidos";
+
+			$pedidos=ModeloPedidos::mdlMostrarPedidos($tablape,null,null);
+
+			$numpedidos = count($pedidos);
+
+			if($numpedidos >= 10 ){
+
+				echo "ENTRO A SOLICITUD";
+
+				$url = 'http://localhost:8081/recepcionar/probando';
+
+				//create a new cURL resource
+				$ch = curl_init($url);
+
+				//setup request to send json via POST
+				
+				foreach ($pedidos as $key => $value) {
+				$pedidosss[] = array(
+								"Producto" => $value["nombre_producto"],
+								"cantidad" => $value["cantidad_producto"]
+					);
+				}
+
+				$data = array(
+					"farmacia" => "INKAFARMA",
+					"RUC"    => "244654524165",
+					"Pedidos" => $pedidosss,
+					"fechaSolicitud" => date("Y-m-d H:i:s")
+				);
+				
+				
+
+
+				$payload = json_encode(array($data));
+
+				//attach encoded JSON string to the POST fields
+				curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
+
+				//set the content type to application/json
+				curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
+
+				//return response instead of outputting
+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+				//execute the POST request
+				$result = curl_exec($ch);
+
+				//close cURL resource
+				curl_close($ch);	
+
+
+
+				$eliminartabla = ModeloPedidos::mdlEliminarPedido("pedidos");
+
+			}
 
 			if($respuesta == "ok"){
 
@@ -317,6 +404,7 @@ class ControladorVentas{
 			
 
 			$respuesta = ModeloVentas::mdlEditarVenta($tabla, $datos);
+
 
 			if($respuesta == "ok"){
 

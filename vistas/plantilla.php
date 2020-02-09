@@ -136,7 +136,7 @@ if (isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok") {
             $_GET["ruta"] == "ventas" ||
             $_GET["ruta"] == "crear-venta" ||
             $_GET["ruta"] == "editar-venta" ||
-
+            $_GET["ruta"] == "notificaciones" ||
             $_GET["ruta"] == "reportes" ||
             $_GET["ruta"] == "salir") {
 

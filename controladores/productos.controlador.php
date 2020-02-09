@@ -1,12 +1,129 @@
 <?php
+include 'modelos/notificacion.modelo.php';
 
 class ControladorProductos
 {
 
+    
+
+    /*=============================================
+    CREAR PEDIDO
+    =============================================*/
+
+    public static function ctrCrearPedido()
+    {
+
+        if (isset($_POST["aceptar"])) {
+
+            $tablape ="pedidos";
+
+			$pedidos=ModeloPedidos::mdlMostrarPedidos($tablape,null,null);
+
+			$numpedidos = count($pedidos);
+
+            echo "AQUIIIIIIIIIII" +$numpedidos;
+
+            $url = 'http://localhost:8081/recepcionar/probando';
+
+            //create a new cURL resource
+            $ch = curl_init($url);
+
+            //setup request to send json via POST
+            
+            foreach ($pedidos as $key => $value) {
+            $pedidosss[] = array(
+                            "Producto" => $value["nombre_producto"],
+                            "cantidad" => $value["cantidad_producto"]
+                );
+            }
+
+            $data = array(
+                "farmacia" => "INKAFARMA",
+                "RUC"    => "244654524165",
+                "Pedidos" => $pedidosss,
+                "fechaSolicitud" => date("Y-m-d H:i:s")
+            );
+            
+            
+
+
+            $payload = json_encode(array($data));
+
+            //attach encoded JSON string to the POST fields
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
+
+            //set the content type to application/json
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
+
+            //return response instead of outputting
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+            //execute the POST request
+            $result = curl_exec($ch);
+
+            //close cURL resource
+            curl_close($ch);	
+
+
+
+            $eliminartabla = ModeloPedidos::mdlEliminarPedido("pedidos");
+
+            
+                            if($numpedidos==0){
+                                $respuesta =="fake";
+                            }else{
+                                $respuesta = "ok";
+                            }
+
+                                echo "AQUIEEEE" + $respuesta + " Y " + $numpedidos;
+                            if ($respuesta == "ok") {
+            
+                                echo '<script>
+            
+                                    swal({
+                                          type: "success",
+                                          title: "El pedido ha sido enviado correctamente",
+                                          showConfirmButton: true,
+                                          confirmButtonText: "Cerrar"
+                                          }).then(function(result){
+                                                    if (result.value) {
+            
+                                                    window.location = "productos";
+            
+                                                    }
+                                                })
+            
+                                    </script>';
+            
+                            } else {
+                                echo '<script>
+            
+                                    swal({
+                                        type: "error",
+                                        title: "No hay productos a solicitar",
+                                        showConfirmButton: true,
+                                        confirmButtonText: "Cerrar"
+                                    }).then(function(result){
+                                        if (result.value) {
+            
+                                            window.location = "productos";
+            
+                                        }
+                                    })
+            
+                                  </script>';
+                            }
+            
+             
+
+        }
+
+    }
+
+
     /*=============================================
     MOSTRAR PRODUCTOS
     =============================================*/
-
     public static function ctrMostrarProductos($item, $valor)
     {
 
@@ -17,6 +134,26 @@ class ControladorProductos
         return $respuesta;
 
     }
+
+    /*=============================================
+    MOSTRAR Pedidos
+    =============================================*/
+    public static function ctrMostrarNotificaciones($item, $valor)
+    {
+
+        $tabla = "notificaciones";
+
+        $respuesta = ModeloNotificaciones::mdlMostrarNotificaciones($tabla, $item, $valor);
+
+        return $respuesta;
+
+    }
+
+
+
+
+
+
 
     /*=============================================
     AGREGAR LISTA DE PRODUCTOS

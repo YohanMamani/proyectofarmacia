@@ -14,6 +14,7 @@ CARGAR LA TABLA DINÁMICA DE PRODUCTOS
  })
 
 $('.tablaProductos').DataTable( {
+    
     "ajax": "ajax/datatable-productos.ajax.php",
     "deferRender": true,
   "retrieve": true,
