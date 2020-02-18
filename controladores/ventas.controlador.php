@@ -1,5 +1,4 @@
 <?php
-include 'modelos/pedidos.modelo.php';
 
 
 class ControladorVentas{
@@ -23,6 +22,7 @@ class ControladorVentas{
 	=============================================*/
 
 	static public function ctrCrearVenta(){
+		include 'modelos/pedidos.modelo.php';
 
 		if(isset($_POST["nuevaVenta"])){
 
@@ -150,7 +150,7 @@ class ControladorVentas{
 						   "total"=>$_POST["nuevoTotalVenta"],
 						   "metodo_pago"=>$_POST["listaMetodoPago"]);
 			
-			//$respuesta = ModeloVentas::mdlIngresarVenta($tabla, $datos);
+			$respuesta = ModeloVentas::mdlIngresarVenta($tabla, $datos);
 			$respuesta2 = 10; //aca tengo que llamar a la base de datos
 			
 			$tablape ="pedidos";
@@ -163,7 +163,7 @@ class ControladorVentas{
 
 				echo "ENTRO A SOLICITUD";
 
-				$url = 'http://localhost:8081/recepcionar/probando';
+				$url = 'http://localhost:8081/recepcionarpedidos/probando';
 
 				//create a new cURL resource
 				$ch = curl_init($url);

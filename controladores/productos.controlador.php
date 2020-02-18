@@ -1,5 +1,4 @@
 <?php
-include 'modelos/notificacion.modelo.php';
 
 class ControladorProductos
 {
@@ -13,8 +12,9 @@ class ControladorProductos
     public static function ctrCrearPedido()
     {
 
+        
         if (isset($_POST["aceptar"])) {
-
+            include 'modelos/pedidos.modelo.php';
             $tablape ="pedidos";
 
 			$pedidos=ModeloPedidos::mdlMostrarPedidos($tablape,null,null);
@@ -23,7 +23,7 @@ class ControladorProductos
 
             echo "AQUIIIIIIIIIII" +$numpedidos;
 
-            $url = 'http://localhost:8081/recepcionar/probando';
+            $url = 'http://localhost:8081/recepcionarpedidos/probando';
 
             //create a new cURL resource
             $ch = curl_init($url);
@@ -140,6 +140,7 @@ class ControladorProductos
     =============================================*/
     public static function ctrMostrarNotificaciones($item, $valor)
     {
+        include 'modelos/notificacion.modelo.php';
 
         $tabla = "notificaciones";
 
