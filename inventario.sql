@@ -100,15 +100,15 @@ CREATE TABLE `excel` (
 --
 
 INSERT INTO `excel` (`Codigo`, `Descripcion`, `Juego`, `Precio`, `Costo`, `Cantidad`) VALUES
-('1BS512', 'Structure Deck Power Encode ', 'DBZ', 40, 25, 10),
-('1CF562', 'Structure Deck Wave of Light', 'YuGiOh', 35, 20, 15),
-('2DF124', 'Starter Deck Code Break', 'YuGiOh', 40, 25, 12),
-('3TY145', 'Dragon Ball Super TCG', 'DBZ', 50, 30, 10),
-('4SD785', 'Booster Pack Set 2 Union Force', 'YuGiOh', 13, 5, 25),
-('5JK456', 'Combo Pokemon TCG', 'Pokemon', 85, 50, 15),
-('6IO154', 'Booster Pack Set 1 Galactic Battle', 'YuGiOh', 13, 5, 25),
-('7KL415', 'Legendary Hero Decks', 'YuGiOh', 120, 60, 15),
-('8HN158', 'Planeswalker Deck', 'Magi', 60, 30, 40),
+('1BS512', 'Agua de Belleza de Caudalie ', 'Jarabe', 40, 25, 10),
+('1CF562', 'Perfumes levon', 'Champu', 35, 20, 15),
+('2DF124', 'Starter Deck Code', 'Pastilla', 40, 25, 12),
+('3TY145', 'Starter Deck Code', 'Pastilla', 50, 30, 10),
+('4SD785', 'Starter Deck Code', 'Pastilla', 13, 5, 25),
+('5JK456', 'Starter Deck Code', 'Pastilla', 85, 50, 15),
+('6IO154', 'Starter Deck Code', 'Pastilla', 13, 5, 25),
+('7KL415', 'Starter Deck Code', 'Pastilla', 120, 60, 15),
+('8HN158', 'Starter Deck Code', 'Pastilla', 60, 30, 40),
 ('', '', '', 0, 0, 0),
 ('', '', '', 0, 0, 0),
 ('', '', '', 0, 0, 0),
@@ -163,11 +163,11 @@ CREATE TABLE `juegos` (
 --
 
 INSERT INTO `juegos` (`id`, `juego`, `fecha`) VALUES
-(1, 'YuGiOH', '2019-01-03 06:04:31'),
-(2, 'DBZ', '2019-01-02 00:56:30'),
-(3, 'Pokemon', '2019-01-02 00:56:30'),
-(4, 'Magi', '2019-01-02 00:56:30'),
-(5, 'Warcraft3', '2019-01-03 05:59:41');
+(1, 'Champu', '2019-01-03 06:04:31'),
+(2, 'Antialergico', '2019-01-02 00:56:30'),
+(3, 'Pastilla', '2019-01-02 00:56:30'),
+(4, 'Gel', '2019-01-02 00:56:30'),
+(5, 'Jarabe', '2019-01-03 05:59:41');
 
 -- --------------------------------------------------------
 
@@ -193,21 +193,21 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id`, `id_juego`, `codigo`, `descripcion`,`stock_minimo`, `stock`,`stock_maximo`, `precio_compra`, `precio_venta`, `fecha`) VALUES
-(1, 1, 'SD4525', 'Deck Destiny Hero',5, 7, 50 , 12, 15, '2018-12-31 04:33:26'),
-(2, 1, '1GY175', 'Deck Hero Storm GH',5, 9, 40, 11, 15, '2019-04-30 20:04:29'),
-(3, 1, '1HJ159', 'ULTRADECK JOEY', 5,11, 60,20, 30, '2019-04-30 19:56:19'),
-(4, 1, '1YU555', 'Deck Destiny Hero',5, 6,50, 20, 30, '2018-12-31 23:56:11'),
-(6, 1, '1YU558', 'ULTRADECK YUGI',5, 23,60, 25, 35, '2019-01-02 05:47:07'),
-(7, 2, '1BS512', 'Structure Deck Power Encode ',5, 9,70, 25, 40, '2019-04-30 19:58:55'),
-(23, 1, '1CF562', 'Structure Deck Wave of Light',5,15,50, 20, 35, '2019-01-02 01:05:41'),
-(24, 1, '2DF124', 'Starter Deck Code Break',5,12,80, 25, 40, '2019-01-02 01:05:41'),
-(25, 2, '3TY145', 'Dragon Ball Super TCG',5,10,50, 30, 50, '2019-01-02 01:05:41'),
-(26, 1, '4SD785', 'Booster Pack Set 2 Union Force',5, 25,70, 5, 13, '2019-01-02 01:05:41'),
-(27, 3, '5JK456', 'Combo Pokemon TCG',5, 15,50, 50, 85, '2019-01-02 01:05:41'),
-(28, 1, '6IO154', 'Booster Pack Set 1 Galactic Battle',5, 25,80, 5, 13, '2019-01-02 01:05:41'),
-(29, 1, '7KL415', 'Legendary Hero Decks',5, 15,70, 60, 120, '2019-01-02 01:05:41'),
-(30, 4, '8HN158', 'Planeswalker Deck',5, 40,80, 30, 60, '2019-01-02 01:05:41'),
-(31, 1, 'SD45GH', 'ludo',5,22,70, 12, 23, '2019-04-30 20:18:39');
+(1, 1, 'SD4525', 'Sérum de SkinCeuticals',5, 7, 50 , 12, 15, '2018-12-31 04:33:26'),
+(2, 1, '1GY175', 'Copas Menstruales derologo',5, 9, 40, 11, 15, '2019-04-30 20:04:29'),
+(3, 1, '1HJ159', 'Proteoglicanos soes', 5,11, 60,20, 30, '2019-04-30 19:56:19'),
+(4, 1, '1YU555', 'Crema antiedad miral',5, 6,50, 20, 30, '2018-12-31 23:56:11'),
+(6, 1, '1YU558', 'Aceite antiestrías foer',5, 23,60, 25, 35, '2019-01-02 05:47:07'),
+(7, 2, '1BS512', 'Agua de Belleza de Caudalie ',5, 9,70, 25, 40, '2019-04-30 19:58:55'),
+(23, 1, '1CF562', 'Perfumes levon',5,15,50, 20, 35, '2019-01-02 01:05:41'),
+(24, 1, '2DF124', 'Starter Deck',5,12,80, 25, 40, '2019-01-02 01:05:41'),
+(25, 2, '3TY145', 'Pilexel 100 cap',5,10,50, 30, 50, '2019-01-02 01:05:41'),
+(26, 1, '4SD785', 'Farmartint',5, 25,70, 5, 13, '2019-01-02 01:05:41'),
+(27, 3, '5JK456', 'Negogenic champu',5, 15,50, 50, 85, '2019-01-02 01:05:41'),
+(28, 1, '6IO154', 'Nutraedica anticaspa',5, 25,80, 5, 13, '2019-01-02 01:05:41'),
+(29, 1, '7KL415', 'Marti Derm',5, 15,70, 60, 120, '2019-01-02 01:05:41'),
+(30, 4, '8HN158', 'Phyto re',5, 40,80, 30, 60, '2019-01-02 01:05:41'),
+(31, 1, 'SD45GH', 'Nopucip anticaspa',5,22,70, 12, 23, '2019-04-30 20:18:39');
 
 -- --------------------------------------------------------
 
@@ -260,16 +260,16 @@ CREATE TABLE `ventas` (
 --
 
 INSERT INTO `ventas` (`id`, `codigo`, `dni_cli`, `id_vendedor`, `productos`, `descuento`, `total`, `metodo_pago`, `fecha`) VALUES
-(1, 10001, 1, 70485303, '[{\"id\":\"1\",\"descripcion\":\"Deck Destiny Hero\",\"cantidad\":\"2\",\"stock\":\"8\",\"precio\":\"15\",\"total\":\"30\"}]', 0, 30, 'Efectivo', '2018-12-29 18:26:09'),
-(2, 10002, 1, 70485303, '[{\"id\":\"1\",\"descripcion\":\"Deck Destiny Hero\",\"cantidad\":\"1\",\"stock\":\"7\",\"precio\":\"15\",\"total\":\"15\"}]', 0, 15, 'Efectivo', '2018-12-31 04:33:27'),
-(3, 10003, 1, 70485303, '[{\"id\":\"3\",\"descripcion\":\"ULTRADECK JOEY\",\"cantidad\":\"1\",\"stock\":\"14\",\"precio\":\"30\",\"total\":\"30\"},{\"id\":\"4\",\"descripcion\":\"Deck Destiny Hero\",\"cantidad\":\"1\",\"stock\":\"4\",\"precio\":\"30\",\"total\":\"30\"}]', 0, 60, 'Efectivo', '2018-12-31 23:56:11'),
-(4, 10004, 1, 70485303, '[{\"id\":\"6\",\"descripcion\":\"ULTRADECK YUGI\",\"cantidad\":\"1\",\"stock\":\"24\",\"precio\":\"35\",\"total\":\"35\"}]', 10, 25, 'Efectivo', '2019-01-01 00:06:49'),
-(5, 10005, 4, 70485303, '[{\"id\":\"3\",\"descripcion\":\"ULTRADECK JOEY\",\"cantidad\":\"1\",\"stock\":\"13\",\"precio\":\"30\",\"total\":\"30\"},{\"id\":\"6\",\"descripcion\":\"ULTRADECK YUGI\",\"cantidad\":\"1\",\"stock\":\"23\",\"precio\":\"35\",\"total\":\"35\"}]', 10, 55, 'Efectivo', '2019-01-02 05:47:07'),
-(6, 10006, 4, 70485303, '[{\"id\":\"3\",\"descripcion\":\"ULTRADECK JOEY\",\"cantidad\":\"1\",\"stock\":\"12\",\"precio\":\"30\",\"total\":\"30\"}]', 30, 0, 'Efectivo', '2019-04-30 19:55:46'),
-(7, 10007, 1, 70485303, '[{\"id\":\"3\",\"descripcion\":\"ULTRADECK JOEY\",\"cantidad\":\"1\",\"stock\":\"11\",\"precio\":\"30\",\"total\":\"30\"}]', 10, 20, 'Efectivo', '2019-04-30 19:56:20'),
-(8, 10008, 3, 70485303, '[{\"id\":\"7\",\"descripcion\":\"Structure Deck Power Encode \",\"cantidad\":\"1\",\"stock\":\"9\",\"precio\":\"40\",\"total\":\"40\"}]', 0, 40, 'Efectivo', '2019-04-30 19:58:55'),
-(9, 10009, 1, 70485212, '[{\"id\":\"2\",\"descripcion\":\"Deck Hero Storm GH\",\"cantidad\":\"1\",\"stock\":\"9\",\"precio\":\"15\",\"total\":\"15\"}]', 0, 15, 'Efectivo', '2019-04-30 20:04:30'),
-(10, 10010, 2, 70485212, '[{\"id\":\"31\",\"descripcion\":\"ludo\",\"cantidad\":\"1\",\"stock\":\"22\",\"precio\":\"23\",\"total\":\"23\"}]', 0, 23, 'Efectivo', '2019-04-30 20:18:39');
+(1, 10001, 1, 70485303, '[{\"id\":\"1\",\"descripcion\":\"Sérum de SkinCeuticals\",\"cantidad\":\"2\",\"stock\":\"8\",\"precio\":\"15\",\"total\":\"30\"}]', 0, 30, 'Efectivo', '2018-12-29 18:26:09'),
+(2, 10002, 1, 70485303, '[{\"id\":\"1\",\"descripcion\":\"Sérum de SkinCeuticals\",\"cantidad\":\"1\",\"stock\":\"7\",\"precio\":\"15\",\"total\":\"15\"}]', 0, 15, 'Efectivo', '2018-12-31 04:33:27'),
+(3, 10003, 1, 70485303, '[{\"id\":\"3\",\"descripcion\":\"Proteoglicanos soes\",\"cantidad\":\"1\",\"stock\":\"14\",\"precio\":\"30\",\"total\":\"30\"},{\"id\":\"4\",\"descripcion\":\"Deck Destiny Hero\",\"cantidad\":\"1\",\"stock\":\"4\",\"precio\":\"30\",\"total\":\"30\"}]', 0, 60, 'Efectivo', '2018-12-31 23:56:11'),
+(4, 10004, 1, 70485303, '[{\"id\":\"6\",\"descripcion\":\"Proteoglicanos soes\",\"cantidad\":\"1\",\"stock\":\"24\",\"precio\":\"35\",\"total\":\"35\"}]', 10, 25, 'Efectivo', '2019-01-01 00:06:49'),
+(5, 10005, 4, 70485303, '[{\"id\":\"3\",\"descripcion\":\"Proteoglicanos soes\",\"cantidad\":\"1\",\"stock\":\"13\",\"precio\":\"30\",\"total\":\"30\"},{\"id\":\"6\",\"descripcion\":\"ULTRADECK YUGI\",\"cantidad\":\"1\",\"stock\":\"23\",\"precio\":\"35\",\"total\":\"35\"}]', 10, 55, 'Efectivo', '2019-01-02 05:47:07'),
+(6, 10006, 4, 70485303, '[{\"id\":\"3\",\"descripcion\":\"Proteoglicanos soes\",\"cantidad\":\"1\",\"stock\":\"12\",\"precio\":\"30\",\"total\":\"30\"}]', 30, 0, 'Efectivo', '2019-04-30 19:55:46'),
+(7, 10007, 1, 70485303, '[{\"id\":\"3\",\"descripcion\":\"Proteoglicanos soes\",\"cantidad\":\"1\",\"stock\":\"11\",\"precio\":\"30\",\"total\":\"30\"}]', 10, 20, 'Efectivo', '2019-04-30 19:56:20'),
+(8, 10008, 3, 70485303, '[{\"id\":\"7\",\"descripcion\":\"Agua de Belleza de Caudalie \",\"cantidad\":\"1\",\"stock\":\"9\",\"precio\":\"40\",\"total\":\"40\"}]', 0, 40, 'Efectivo', '2019-04-30 19:58:55'),
+(9, 10009, 1, 70485212, '[{\"id\":\"2\",\"descripcion\":\"Copas Menstruales derologo\",\"cantidad\":\"1\",\"stock\":\"9\",\"precio\":\"15\",\"total\":\"15\"}]', 0, 15, 'Efectivo', '2019-04-30 20:04:30'),
+(10, 10010, 2, 70485212, '[{\"id\":\"31\",\"descripcion\":\"Nopucip anticaspa\",\"cantidad\":\"1\",\"stock\":\"22\",\"precio\":\"23\",\"total\":\"23\"}]', 0, 23, 'Efectivo', '2019-04-30 20:18:39');
 
 --
 -- Estructura de tabla para la tabla `ventas`
