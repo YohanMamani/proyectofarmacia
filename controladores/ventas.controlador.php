@@ -172,16 +172,24 @@ class ControladorVentas{
 				
 				foreach ($pedidos as $key => $value) {
 				$pedidosss[] = array(
-								"Producto" => $value["nombre_producto"],
+								"nombreproducto" => $value["nombre_producto"],
 								"cantidad" => $value["cantidad_producto"]
 					);
 				}
 
+				date_default_timezone_set('America/Bogota');
+
+				$fecha = date('Y-m-d');
+				$hora = date('H:i:s');
+	
+				$fechaActual = $fecha.' '.$hora;
+
 				$data = array(
-					"farmacia" => "INKAFARMA",
-					"RUC"    => "244654524165",
-					"Pedidos" => $pedidosss,
-					"fechaSolicitud" => date("Y-m-d H:i:s")
+					"nombre" => "INKAFARMA",
+					"ruc"    => "244654524165",
+					"productos" => $pedidosss,
+					//"fecha" => date("Y-m-d H:i:s"),
+					"fecha" => $fechaActual
 				);
 				
 				
